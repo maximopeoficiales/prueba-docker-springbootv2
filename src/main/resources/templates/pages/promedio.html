@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <title>Promedio</title>
+  </head>
+  <body>
+    <div th:replace="fragments/navbar :: navbar"></div>
+    <div class="container p-2">
+      <main>
+        <div class="container p-2 mx-auto">
+          <div class="d-flex justify-content-around">
+            <div class="col-md-6">
+              <p>ID: <span th:text="${user.id}"></span></p>
+              <p>Usuario: <span th:text="${user.nombreusuario}"></span></p>
+              <p>
+                Nombre Completo: <span th:text="${user.nombrecompleto}"></span>
+              </p>
+            </div>
+            <div class="col-md-6">
+              <ul class="list-group">
+                <div class="" th:each="n,i: ${notas}">
+                  <li class="list-group-item" th:text=" 'Nota ' + ${i.index} + ': ' + ${n}"></li>
+
+                </div>
+                <li class="list-group-item">
+                  Promedio: <span th:text="${promedio}"></span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
